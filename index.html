@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&family=Noto+Serif+JP:wght@600&display=swap"
+  rel="stylesheet"
+>
+  <title>SMOKY GLASS 智慧吸菸室</title>
+
+  <link rel="stylesheet" href="SmokyGlass.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="is-age-page">
+
+  <!--
+    所有排版以原稿 1920px 為基準。
+    script.js 會依瀏覽器寬度，等比例縮放整個 app。
+  -->
+  <main id="app">
+
+    <!-- ================= 年齡警示 ================= -->
+
+    <section
+      id="age"
+      class="page age-page"
+      aria-label="年齡確認"
+    >
+      <img
+        class="placed artwork"
+        style="--x:680; --y:78; --w:560; --h:560;"
+        src="images/冰晶玻璃質感禁菸標誌.png"
+        alt="禁止未滿二十歲吸菸"
+      >
+
+      <h1
+        class="placed age-title"
+        style="--x:619; --y:599; --w:683; --h:103;"
+      >
+        是否已滿20歲?
+      </h1>
+
+      <p
+        class="placed age-description"
+        style="--x:619; --y:702; --w:683; --h:103;"
+      >
+        依據政府規定，未滿20歲禁止吸菸。
+      </p>
+
+      <button
+        id="age-yes"
+        class="placed age-button"
+        style="--x:478; --y:775; --w:404; --h:160;"
+        type="button"
+      >
+        是
+      </button>
+
+      <button
+        id="age-no"
+        class="placed age-button"
+        style="--x:1038; --y:775; --w:404; --h:160;"
+        type="button"
+      >
+        否
+      </button>
+    </section>
+
+
+    <!-- ================= 首頁 ================= -->
+
+    <section
+      id="home"
+      class="page home-page"
+      aria-label="首頁"
+      hidden
+    >
+      <header class="site-header"></header>
+
+      <!-- Google 地圖嵌入：可直接拖曳、縮放 -->
+      <iframe
+        id="home-map"
+        class="placed map-frame"
+        style="--x:61; --y:100; --w:1800; --h:840;"
+        title="附近吸菸室地圖"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d231374.0711052818!2d121.5438206!3d25.026611700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1794145716182!5m2!1szh-TW!2stw"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+
+      <div
+        class="placed map-title-background"
+        style="--x:87; --y:735; --w:540; --h:190;"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="placed map-title"
+        style="--x:105; --y:735; --w:554; --h:178;"
+      >
+        <span>尋找附近的</span>
+        <strong>智慧吸菸室</strong>
+      </div>
+
+      <h2
+        class="placed introduction-title"
+        style="--x:68; --y:958; --w:527; --h:103;"
+      >
+        智慧吸菸室介紹
+      </h2>
+
+      <p
+        class="placed introduction-hint"
+        style="--x:575; --y:1010; --w:202; --h:103;"
+      >
+        點按了解更多
+      </p>
+
+      <!-- 四張圖片各自保留原稿比例 -->
+
+      <img
+        class="placed photo"
+        style="--x:61; --y:1060; --w:652; --h:580;"
+        src="images/玻璃上的煙霧粒子幻化.png"
+        alt="煙霧粒子玻璃效果"
+      >
+
+      <img
+        class="placed photo"
+        style="--x:749; --y:1060; --w:540; --h:320;"
+        src="images/未來感空氣品質與人數 HUD.png"
+        alt="即時資訊顯示"
+      >
+
+      <img
+        class="placed photo"
+        style="--x:1321; --y:1060; --w:540; --h:320;"
+        src="images/手機投射星際音樂介面.png"
+        alt="智慧投放內容"
+      >
+
+      <img
+        class="placed photo record-photo"
+        style="--x:749; --y:1402; --w:1112; --h:238;"
+        src="images/玻璃霓虹吸菸紀錄儀表板.png"
+        alt="吸菸紀錄"
+      >
+
+      <!-- 圖片上的文字底色 -->
+
+      <div
+        class="placed caption-background"
+        style="--x:77; --y:1490; --w:447; --h:138;"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="placed caption-background"
+        style="--x:759; --y:1270; --w:459; --h:104;"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="placed caption-background"
+        style="--x:1327; --y:1270; --w:500; --h:104;"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="placed caption-background"
+        style="--x:762; --y:1524; --w:821; --h:104;"
+        aria-hidden="true"
+      ></div>
+
+      <!-- 圖片上的文字 -->
+
+      <h3
+        class="placed feature-title"
+        style="--x:94; --y:1490; --w:527; --h:69;"
+      >
+        煙霧粒子玻璃效果
+      </h3>
+
+      <p
+        class="placed feature-description"
+        style="--x:94; --y:1547; --w:592; --h:81;"
+      >
+        吐出的煙霧將由AI隨機生成粒子效果，<br>
+        讓您看見吸菸的痕跡。
+      </p>
+
+      <h3
+        class="placed feature-title"
+        style="--x:762; --y:1270; --w:252; --h:69;"
+      >
+        及時資訊顯示
+      </h3>
+
+      <p
+        class="placed feature-description"
+        style="--x:762; --y:1327; --w:491; --h:53;"
+      >
+        玻璃將顯示目前使用人數及當前空氣品質。
+      </p>
+
+      <h3
+        class="placed feature-title"
+        style="--x:1339; --y:1270; --w:252; --h:69;"
+      >
+        智慧投放內容
+      </h3>
+
+      <p
+        class="placed feature-description"
+        style="--x:1343; --y:1327; --w:577; --h:53;"
+      >
+        支援多元投屏宮功能，讓吸菸時間不無聊。
+      </p>
+
+      <h3
+        class="placed feature-title"
+        style="--x:767; --y:1531; --w:252; --h:69;"
+      >
+        吸菸紀錄
+      </h3>
+
+      <p
+        class="placed feature-description"
+        style="--x:767; --y:1588; --w:990; --h:53;"
+      >
+        記錄您的吸菸時長，協助您建立更健康的吸菸時習慣，掌握自己的時間管理。
+      </p>
+
+      <!-- 注意事項 -->
+
+      <aside
+        id="home-policy"
+        class="placed home-policy"
+        style="--x:61; --y:1760; --w:1800; --h:320;"
+      >
+        <h2>注意<br>事項</h2>
+
+        <div class="policy-copy">
+          <p>
+            ‧依《菸害防制法》第16條、17條規定，未滿二十歲之人及孕婦，不得吸菸，亦不得供應菸品、指定菸品必要之組合元件、強迫、引誘或其他方式使孕婦或未滿二十歲之人吸菸。
+          </p>
+
+          <p>
+            ‧本場所依《菸害防制法》設置為合法吸菸區，請勿在非指定區域吸菸，以維護公共環境。
+          </p>
+
+          <p>
+            ‧使用完請勿隨意丟棄菸蒂，共同維護良好的使用環境與設施。
+          </p>
+
+          <p>
+            ‧吸菸有害健康，請適量並注意自身身體狀況，如有不適請立即休息。
+          </p>
+        </div>
+      </aside>
+
+  <footer class="site-footer home-footer">
+    <div class="footer-links">
+      <span>關於我們</span>
+      <span>常見問題</span>
+      <span>聯絡我們</span>
+      <span>隱私權政策</span>
+    </div>
+    <p class="brand-name">SMOKY GLASS</p>
+  </footer>
+    </section>
+
+
+    <!-- ================= 登入表單 ================= -->
+
+    <section
+      id="login"
+      class="page short-page login-page"
+      aria-label="註冊與登入"
+      hidden
+    >
+      <header class="site-header"></header>
+
+      <img
+        class="placed artwork"
+        style="--x:660; --y:87; --w:560; --h:560;"
+        src="images/霧光玻璃環繞徽章.png"
+        alt="SMOKY GLASS"
+      >
+
+      <h1
+        class="placed login-title"
+        style="--x:640; --y:614; --w:640; --h:100;"
+      >
+        歡迎註冊/登入帳號
+      </h1>
+
+      <form
+        id="login-form"
+        class="placed login-form"
+        style="--x:640; --y:716; --w:640; --h:208;"
+      >
+        <label class="visually-hidden" for="account">
+          帳號
+        </label>
+
+        <input
+          id="account"
+          name="account"
+          type="text"
+          placeholder="請輸入帳號"
+          autocomplete="username"
+          required
+        >
+
+        <label class="visually-hidden" for="password">
+          密碼
+        </label>
+
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="請輸入密碼"
+          autocomplete="current-password"
+          required
+        >
+
+        <!-- 原稿沒有可見的登入按鈕，使用 Enter 送出 -->
+        <button class="visually-hidden" type="submit">
+          登入
+        </button>
+      </form>
+
+      <footer class="site-footer short-footer"></footer>
+    </section>
+
+
+    <!-- ================= 會員條碼 ================= -->
+
+    <section
+      id="member"
+      class="page short-page member-page"
+      aria-label="會員條碼"
+      hidden
+    >
+      <header class="site-header"></header>
+
+      <img
+        class="placed artwork"
+        style="--x:660; --y:126; --w:560; --h:560;"
+        src="images/頭像.png"
+        alt="會員頭像"
+      >
+
+      <h1
+        class="placed member-name js-member-name"
+        style="--x:620; --y:686; --w:640; --h:100;"
+      >
+        名字
+      </h1>
+
+      <a
+        class="placed barcode-link"
+        style="--x:620; --y:786; --w:640; --h:146;"
+        href="#dashboard"
+        aria-label="查看會員資料"
+      >
+        <img
+          class="barcode-image"
+          src="images/條碼.png"
+          alt="會員條碼"
+        >
+      </a>
+
+      <footer class="site-footer short-footer"></footer>
+    </section>
+
+
+    <!-- ================= 會員資料 ================= -->
+
+    <section
+      id="dashboard"
+      class="page short-page dashboard-page"
+      aria-label="會員資料"
+      hidden
+    >
+      <header class="site-header"></header>
+
+      <!-- 上排 -->
+
+      <img
+        class="placed photo"
+        style="--x:59; --y:133; --w:900; --h:400;"
+        src="images/深藍霧光玻璃介面.png"
+        alt=""
+      >
+
+      <img
+        class="placed photo"
+        style="--x:980; --y:133; --w:880; --h:400;"
+        src="images/霧藍磨砂玻璃光影.png"
+        alt=""
+      >
+
+      <!-- 下排 -->
+
+      <img
+        class="placed photo"
+        style="--x:59; --y:555; --w:640; --h:300;"
+        src="images/霧藍磨砂玻璃光影.png"
+        alt=""
+      >
+
+      <img
+        class="placed photo"
+        style="--x:730; --y:555; --w:640; --h:300;"
+        src="images/深藍霧光玻璃介面.png"
+        alt=""
+      >
+
+      <img
+        class="placed photo"
+        style="--x:1400; --y:555; --w:460; --h:300;"
+        src="images/霧藍磨砂玻璃光影.png"
+        alt=""
+      >
+
+      <!-- 會員資訊 -->
+
+      <div
+        class="placed member-greeting"
+        style="--x:491; --y:123; --w:450; --h:210;"
+      >
+        <span>您好，</span>
+        <strong class="js-member-name">名字</strong>
+      </div>
+
+      <p
+        class="placed dashboard-label"
+        style="--x:87; --y:377; --w:121; --h:69;"
+      >
+        性別
+      </p>
+
+      <p
+        class="placed dashboard-label"
+        style="--x:369; --y:377; --w:121; --h:69;"
+      >
+        年齡
+      </p>
+
+      <p
+        class="placed dashboard-label"
+        style="--x:651; --y:377; --w:121; --h:69;"
+      >
+        菸齡
+      </p>
+
+      <h2
+        class="placed dashboard-label"
+        style="--x:1008; --y:162; --w:471; --h:69;"
+      >
+        今日吸菸頻率
+      </h2>
+
+      <h2
+        class="placed dashboard-label"
+        style="--x:87; --y:579; --w:471; --h:69;"
+      >
+        近一週吸菸紀錄
+      </h2>
+
+      <h2
+        class="placed dashboard-label"
+        style="--x:758; --y:579; --w:212; --h:69;"
+      >
+        菸品紀錄
+      </h2>
+
+      <h2
+        class="placed dashboard-label"
+        style="--x:1428; --y:579; --w:268; --h:69;"
+      >
+        你的吸菸習慣
+      </h2>
+
+      <!-- 會員資料（數值由 script.js 隨機生成） -->
+
+      <p class="placed dashboard-value" data-stat="gender" style="--x:87; --y:440; --w:240; --h:70;"></p>
+      <p class="placed dashboard-value" data-stat="age" style="--x:369; --y:440; --w:240; --h:70;"></p>
+      <p class="placed dashboard-value" data-stat="years" style="--x:651; --y:440; --w:240; --h:70;"></p>
+
+      <div id="today-stats" class="placed today-stats" style="--x:1008; --y:245; --w:824; --h:270;"></div>
+      <div id="week-chart" class="placed week-chart" style="--x:87; --y:650; --w:584; --h:180;"></div>
+      <div id="record-table" class="placed record-table" style="--x:758; --y:650; --w:584; --h:180;"></div>
+      <button type="button" id="add-record" class="placed add-record" style="--x:1302; --y:593; --w:40; --h:40;" aria-label="新增紀錄"></button>
+      <div id="habit-stats" class="placed habit-stats" style="--x:1428; --y:650; --w:404; --h:170;"></div>
+
+      <aside
+        class="placed dashboard-policy"
+        style="--x:59; --y:876; --w:1801; --h:104;"
+      >
+        <h2>注意事項</h2>
+
+        <p>
+          依《菸害防制法》規定，未滿二十歲之人及孕婦，不得吸菸，亦不得供應菸品、指定菸品必要之組合元件、強迫、引誘或其他方式使孕婦或未滿二十歲之人吸菸。
+        </p>
+      </aside>
+
+      <footer class="site-footer dashboard-footer"></footer>
+    </section>
+
+  </main>
+
+
+  <!-- ================= 共用頁首範本 ================= -->
+
+  <template id="header-template">
+    <nav class="header-navigation" aria-label="主導覽">
+      <a class="header-login" href="#login">登入</a>
+      <a class="header-register" href="#login">註冊</a>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="開啟選單"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <nav class="menu-panel" aria-label="選單" hidden>
+      <a href="#home" data-scroll-target="home-map">
+        附近吸菸室
+      </a>
+
+      <a href="#dashboard">
+        會員資訊
+      </a>
+
+      <a href="#home" data-scroll-target="home-policy">
+        吸菸政策
+      </a>
+
+      <button type="button" data-action="settings">
+        設定
+      </button>
+    </nav>
+  </template>
+
+
+  <!-- ================= 共用頁尾範本 ================= -->
+
+  <template id="footer-template">
+    <div class="footer-links">
+      <span>關於我們</span>
+      <span>常見問題</span>
+      <span>聯絡我們</span>
+      <span>隱私權政策</span>
+    </div>
+  </template>
+
+</body>
+</html>
