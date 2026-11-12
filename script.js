@@ -65,7 +65,9 @@ function fitPageToWindow() {
 
   if (availableWidth <= 0) return;
 
-  const scale = availableWidth / DESIGN_WIDTH;
+  /* 手機版（820px 以下）改用自適應排版，不再整頁縮放 */
+  const isMobile = window.matchMedia("(max-width: 820px)").matches;
+  const scale = isMobile ? 1 : availableWidth / DESIGN_WIDTH;
   const nextZoom = String(scale);
 
   if (app.style.zoom !== nextZoom) {
@@ -276,6 +278,22 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeMenus();
   }
+});
+
+
+/* ================= 標準字回首頁 ================= */
+
+/*
+  點左上角標準字回到首頁。
+  已在首頁時也會回到頁面最上方。
+*/
+document.addEventListener("click", (event) => {
+  const logo = event.target.closest(".header-logo");
+
+  if (!logo) return;
+
+  event.preventDefault();
+  navigate("home");
 });
 
 

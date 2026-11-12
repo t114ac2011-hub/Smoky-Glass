@@ -235,6 +235,22 @@ input:focus-visible {
   height: 100%;
 }
 
+/* 左上角標準字：點擊回首頁 */
+.header-logo {
+  position: absolute;
+  left: 40px;
+  top: 24px;
+
+  display: block;
+  height: 56px;
+}
+
+.header-logo img {
+  display: block;
+  width: auto;
+  height: 100%;
+}
+
 .header-login,
 .header-register {
   position: absolute;
@@ -563,7 +579,7 @@ input:focus-visible {
 /* ================= 會員資料 ================= */
 
 .member-greeting {
-  color: var(--cream);
+  color: var(--navy);
 }
 
 .member-greeting span {
@@ -586,7 +602,7 @@ input:focus-visible {
 }
 
 .dashboard-label {
-  color: var(--cream);
+  color: var(--navy);
 
   font-size: 40px;
   font-weight: 700;
@@ -789,7 +805,7 @@ input:focus-visible {
 /* ================= 會員資料：隨機數據 ================= */
 
 .dashboard-value {
-  color: var(--cream);
+  color: var(--navy);
   font-size: 48px;
   font-weight: 700;
   line-height: 70px;
@@ -801,7 +817,7 @@ input:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  color: var(--cream);
+  color: var(--navy);
 }
 
 .today-cards {
@@ -813,7 +829,7 @@ input:focus-visible {
 .today-cards div {
   padding: 24px;
   border-radius: 16px;
-  background: rgb(255 255 255 / 12%);
+  background: rgb(255 255 255 / 40%);
 }
 
 .today-cards span {
@@ -843,7 +859,7 @@ input:focus-visible {
 /* 近一週吸菸紀錄 */
 .week-chart {
   display: flex;
-  color: var(--cream);
+  color: var(--navy);
 }
 
 .week-col {
@@ -864,19 +880,19 @@ input:focus-visible {
 .week-bar {
   width: 44px;
   border-radius: 3px;
-  background: linear-gradient(var(--cream), #8fb0e8);
+  background: linear-gradient(#5d79c2, var(--navy));
 }
 
 /* 菸品紀錄 */
 .record-table {
-  color: var(--cream);
+  color: var(--navy);
 }
 
 .record-row {
   display: grid;
   grid-template-columns: 140px 90px 1fr 50px;
   height: 46px;
-  border-bottom: 1px solid rgb(255 245 237 / 25%);
+  border-bottom: 1px solid rgb(17 39 92 / 25%);
   font-size: 22px;
   line-height: 46px;
 }
@@ -887,7 +903,7 @@ input:focus-visible {
 
 /* 你的吸菸習慣 */
 .habit-stats {
-  color: var(--cream);
+  color: var(--navy);
 }
 
 .habit-row {
@@ -905,7 +921,7 @@ input:focus-visible {
 /* 菸品紀錄右上角的 + 按鈕 */
 .add-record {
   padding: 0;
-  border: 2px solid var(--cream);
+  border: 2px solid var(--navy);
   border-radius: 50%;
   background: transparent;
 }
@@ -916,7 +932,7 @@ input:focus-visible {
   position: absolute;
   left: 50%;
   top: 50%;
-  background: var(--cream);
+  background: var(--navy);
   transform: translate(-50%, -50%);
 }
 
@@ -931,5 +947,457 @@ input:focus-visible {
 }
 
 .add-record:hover {
-  background: rgb(255 255 255 / 15%);
+  background: rgb(17 39 92 / 10%);
+}
+
+/* 電腦版：面板外框不產生排版框，內容維持原座標 */
+.panel,
+.stats,
+.stat {
+  display: contents;
+}
+
+/* 電腦版圓角：與手機版的圓角感一致（尺寸依框的大小等比放大） */
+.panel-bg {
+  border-radius: 28px;
+}
+
+.home-page .photo {
+  border-radius: 24px;
+}
+
+/* ================= 手機版（寬度 820px 以下） ================= */
+
+@media (max-width: 820px) {
+  #app,
+  .page {
+    width: 100%;
+  }
+
+  /* 整頁改成由上往下排列 */
+  .page {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 16px 0;
+  }
+
+  .placed {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+
+  /* ----- 頁首 ----- */
+  .site-header {
+    width: 100%;
+    height: 64px;
+  }
+
+  .header-navigation {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 8px 0 16px;
+  }
+
+  .header-logo {
+    position: static;
+    height: 30px;
+    margin-right: auto;
+  }
+
+  .header-login,
+  .header-register {
+    position: static;
+    width: auto;
+    height: auto;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .menu-button {
+    position: static;
+    width: 44px;
+    height: 44px;
+    gap: 6px;
+  }
+
+  .menu-button span {
+    width: 28px;
+    height: 3px;
+  }
+
+  .menu-panel {
+    top: 64px;
+    width: min(300px, 100%);
+    height: auto;
+    padding: 12px 24px 24px;
+  }
+
+  .menu-panel a,
+  .menu-panel button {
+    width: 100%;
+    height: 52px;
+    font-size: 20px;
+    line-height: 52px;
+  }
+
+  /* ----- 頁尾 ----- */
+  .site-footer,
+  .home-footer,
+  .short-footer,
+  .dashboard-footer {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    overflow: visible;
+  }
+
+  .short-footer {
+    margin-top: auto;
+  }
+
+  .site-footer .footer-links,
+  .home-footer .footer-links {
+    position: static;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .site-footer .footer-links span,
+  .home-footer .footer-links span,
+  .home-footer .footer-links span:last-child {
+    flex: none !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  .home-footer .brand-name {
+    position: static;
+    width: auto;
+    height: auto;
+    margin-top: 24px;
+    font-size: 12vw;
+    line-height: 1.1;
+  }
+
+  /* ----- 年齡確認 ----- */
+  .age-page {
+    align-items: center;
+    justify-content: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    text-align: center;
+  }
+
+  .age-page .artwork {
+    width: min(70vw, 280px);
+    height: auto;
+  }
+
+  .age-title {
+    font-size: 34px;
+    line-height: 1.3;
+    white-space: normal;
+  }
+
+  .age-description {
+    font-size: 16px;
+    line-height: 1.6;
+    white-space: normal;
+  }
+
+  .age-button {
+    width: 100%;
+    max-width: 360px;
+    height: 64px;
+    font-size: 32px;
+  }
+
+  /* ----- 首頁 ----- */
+  .home-page .placed {
+    order: var(--o, 0);
+  }
+
+  .map-title-background,
+  .caption-background {
+    display: none;
+  }
+
+  .map-title {
+    --o: 1;
+  }
+
+  .map-title span {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .map-title strong {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+
+  .map-frame {
+    --o: 2;
+    width: 100%;
+    height: 320px;
+  }
+
+  .introduction-title {
+    --o: 3;
+    margin-top: 8px;
+    font-size: 28px;
+    line-height: 1.3;
+    white-space: normal;
+  }
+
+  .introduction-hint {
+    --o: 4;
+    margin-top: -8px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .home-page .photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+  }
+
+  .home-page .record-photo {
+    aspect-ratio: 16 / 7;
+  }
+
+  .feature-title {
+    font-size: 22px;
+    line-height: 1.4;
+    white-space: normal;
+  }
+
+  .feature-description {
+    margin-top: -8px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .home-policy {
+    --o: 50;
+    margin-bottom: -16px; /* 抵銷 gap，與頁尾貼在一起 */
+    padding: 20px;
+  }
+
+  .home-policy h2 {
+    position: static;
+    margin-bottom: 8px;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .home-policy h2 br {
+    display: none;
+  }
+
+  .policy-copy {
+    position: static;
+    width: auto;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .home-footer {
+    order: 60;
+  }
+
+  /* ----- 登入、會員條碼 ----- */
+  .login-page,
+  .member-page {
+    align-items: center;
+    text-align: center;
+  }
+
+  .login-page .artwork,
+  .member-page .artwork {
+    width: min(60vw, 220px);
+    height: auto;
+  }
+
+  .login-title {
+    font-size: 26px;
+    line-height: 1.4;
+    white-space: normal;
+  }
+
+  .member-name {
+    font-size: 32px;
+    line-height: 1.4;
+  }
+
+  .login-form {
+    width: 100%;
+    max-width: 420px;
+    gap: 16px;
+    justify-content: flex-start;
+  }
+
+  .login-form input {
+    width: 100%;
+    height: 56px;
+    font-size: 18px;
+  }
+
+  .barcode-link {
+    width: 100%;
+    max-width: 420px;
+    padding: 12px;
+  }
+
+  .barcode-image {
+    height: auto;
+  }
+
+  /* ----- 會員資料：面板變卡片 ----- */
+  .panel {
+    position: relative;
+    display: block;
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 16px;
+    color: var(--navy);
+    background: url("images/資訊背景.jpg") center / cover;
+  }
+
+  .panel-bg {
+    display: none;
+  }
+
+  .member-greeting span {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .member-greeting strong {
+    font-size: 40px;
+    line-height: 1.3;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .stat {
+    display: block;
+  }
+
+  .dashboard-label {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  h2.dashboard-label {
+    margin-bottom: 12px;
+    font-size: 22px;
+  }
+
+  .dashboard-value {
+    font-size: 26px;
+    line-height: 1.4;
+  }
+
+  .today-stats {
+    gap: 12px;
+  }
+
+  .today-cards {
+    gap: 8px;
+  }
+
+  .today-cards div {
+    padding: 12px;
+  }
+
+  .today-cards span,
+  .today-cards small {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .today-cards strong {
+    font-size: 34px;
+    line-height: 1.3;
+  }
+
+  .today-stats p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .week-chart {
+    height: 170px;
+  }
+
+  .week-col span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .week-bar {
+    width: 70%;
+    max-width: 32px;
+  }
+
+  .record-row {
+    grid-template-columns: 96px 52px 1fr 28px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+  }
+
+  .habit-row {
+    height: 48px;
+    font-size: 16px;
+  }
+
+  .habit-row strong {
+    font-size: 20px;
+  }
+
+  .panel-records .add-record {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    left: auto;
+    width: 36px;
+    height: 36px;
+  }
+
+  .dashboard-policy {
+    margin-top: auto;
+    margin-bottom: -16px; /* 抵銷 gap，與頁尾貼在一起 */
+    padding: 20px;
+  }
+
+  .dashboard-policy h2 {
+    position: static;
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .dashboard-policy p {
+    position: static;
+    width: auto;
+    font-size: 13px;
+    line-height: 1.7;
+  }
 }
